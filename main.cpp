@@ -1,17 +1,24 @@
 #include <iostream>
+#include <string>
 
 int main() {
-    std::cout << R"cactus(
-            \ | /
-          -- (*) --
-            / | \
+  
+  int maxi = 30;
+  int maxj = 80;
+  std::string buffer;
+
+
+
+
+  std::cout << R"cactus(
+         \ \ | | / / 
        _.-'''''''''-._
     .'  /  /  |  \  \  '.
-   /   /  /   |   \  \   \
+  \/  \/ \/  \|/  \/ \/  \/
   |   |   |   |   |   |   |
-  |   |   |   |   |   |   |
-  |   |   |   |   |   |   |
-  |   |   |   |   |   |   |
+ \|  \|  \|  \|/  |/  |/  |/
+  |   |   |  \|/  |   |   |
+ \|  \|  \|  \|/  |/  |/  |/
    \   \  \   |   /  /   /
     '.  \  \  |  /  /  .'
        '-._________.-'
@@ -19,5 +26,73 @@ int main() {
         \___________/
     ~~~~~~~~~~~~~~~~~~~~~
 )cactus";
-    return 0;
+
+  std::cout << "\n";
+
+  for (int i = 0; i < maxi; i++)
+  {
+
+    if (i == 0) 
+    {
+      
+
+      for (int j = 0; j < maxj; j++)
+      {
+        std::cout << "_";
+      }
+    
+    
+    }
+
+    std::cout << "\n";
+
+    for (int j = 0; j < maxj; j++)
+    {
+      if (j == 0)
+      {
+        std::cout << "|";
+      }
+      else {
+        std::cout << " ";
+      }
+      if (j >= maxj - 1)
+      {
+        std::cout << "|";
+
+      }
+    }
+    
+    if (i >= 29) 
+    {
+    
+
+      std::cout << "\n";
+      std::cout << "|";      
+      
+      for (int j = 0; j < maxj - 1; j++)
+      {
+        std::cout << "_";
+      }
+    
+      std::cout << "|";      
+    
+    }
+
+
+
+  }
+
+  std::cout << "\n";
+  std::cout << "\x1b[24;15H";
+  std::cout << "Cactus!\n" << std::flush;
+  std::cout << "\x1b[25;15H";
+  std::cout << ">";
+  std::cout << "\x1b[25;16H";
+  std::cin >> buffer;
+  std::cout << "\x1b[28;15H";
+  std::cout << buffer << std::endl << std::flush;
+  std::cout <<"\x1b[70;0H";
+
+
+  return 0;
 }
