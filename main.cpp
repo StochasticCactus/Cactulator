@@ -7,8 +7,7 @@ int main() {
   int maxj = 80;
   std::string buffer;
 
-
-
+  std::cout << "\x1b[2J"; 
 
   std::cout << R"cactus(
          \ \ | | / / 
