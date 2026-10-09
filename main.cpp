@@ -5,7 +5,7 @@ int main() {
   
   int maxi = 30;
   int maxj = 80;
-  std::string buffer;
+  std::string buffer = "";
 
   std::cout << "\x1b[2J"; 
 
@@ -85,12 +85,20 @@ int main() {
   std::cout << "\x1b[24;15H";
   std::cout << "Cactus!\n" << std::flush;
   std::cout << "\x1b[25;15H";
-  std::cout << ">";
-  std::cout << "\x1b[25;16H";
-  std::cin >> buffer;
-  std::cout << "\x1b[28;15H";
-  std::cout << buffer << std::endl << std::flush;
-  std::cout <<"\x1b[70;0H";
+
+
+  while (buffer != "exit") {
+
+    std::cout << "\x1b[25;16H"; 
+    std::cout << "\x1b[2K" << std::flush;
+    std::cout << ">";
+    std::cin >> buffer;
+    std::cout << "\x1b[28;15H";
+    std::cout << "\x1b[2K" << std::flush;
+    std::cout << buffer << std::endl << std::flush;
+    std::cout <<"\x1b[70;0H";
+
+  }
 
 
   return 0;
