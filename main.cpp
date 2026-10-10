@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 
+void drawStatus(int row, const std::string& text) {
+    std::cout << "\x1b[" << row << ";1H\x1b[2K" << text << std::flush;
+}
+
 int main() {
   
   int maxi = 30;
