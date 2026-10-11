@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 void drawStatus(int row, const std::string& text) {
     std::cout << "\x1b[" << row << ";1H\x1b[2K" << text << std::flush;
@@ -103,7 +104,17 @@ int main() {
     std::cout <<"\x1b[70;0H";
 
   }
+  
 
+  for (int i = 0; i < 360; i++)
+  {
+
+    
+    std::cout << "\x1b[" << std::to_string((int) (std::sin(i) * 100) ) << ";" << std::to_string(i) << "H";
+    std::cout << "*";
+
+
+  }
 
   return 0;
 }
