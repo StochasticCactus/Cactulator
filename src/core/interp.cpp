@@ -268,6 +268,7 @@ std::vector<std::string> Interp::allNames() const {
 }
 
 std::string Interp::suggest(const std::string& name) const {
+  if (u8len(name) <= 1) return "";
   std::string best;
   int bestD = 3, bestPrefix = -1;
   for (const auto& n : allNames()) {
@@ -583,7 +584,8 @@ Value Interp::evalCall(const NodeP& n) {
       std::string count = b->minArgs == b->maxArgs ? std::to_string(b->minArgs)
                           : b->maxArgs < 0         ? "at least " + std::to_string(b->minArgs)
                                                    : std::to_string(b->minArgs) + " to " + std::to_string(b->maxArgs);
-      throw CalcError(name + " takes " + count + " argument" + (count == "1" ? "" : "s") + ": " + b->signature);
+      bool one = b->maxArgs == 1 || (b->maxArgs < 0 && b->minArgs == 1);
+      throw CalcError(name + " takes " + count + (one ? " argument: " : " arguments: ") + b->signature);
     }
     if (b->lazy) return b->lazy(*this, n->args);
     std::vector<Value> args;
