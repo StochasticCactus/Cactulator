@@ -1,5 +1,6 @@
 #include "numeric.hpp"
 
+#include <functional>
 #include <algorithm>
 #include <cmath>
 #include <cstdio>

@@ -1,4 +1,8 @@
 // Cactulator - GRAPH app: braille plots, trace, zoom, analysis, table, Y= editor.
+#include <functional>
+#include <cstdlib>
+#include <memory>
+#include <cctype>
 #include <algorithm>
 #include <cmath>
 #include <cstdio>

@@ -1,4 +1,6 @@
 // Cactulator - PRGM app: list of your programs/functions and a code editor.
+#include <cstdlib>
+#include <memory>
 #include <algorithm>
 
 #include "app.hpp"

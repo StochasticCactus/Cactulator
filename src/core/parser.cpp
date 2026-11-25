@@ -1,5 +1,8 @@
 #include "parser.hpp"
 
+#include <algorithm>
+#include <functional>
+#include <memory>
 #include <set>
 
 namespace cact {

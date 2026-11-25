@@ -1,4 +1,6 @@
 // Cactulator core tests: run with `make test` or `ctest`.
+#include <algorithm>
+#include <cstdio>
 #include <cmath>
 #include <iostream>
 #include <string>

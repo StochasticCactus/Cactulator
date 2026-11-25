@@ -1,4 +1,6 @@
 // Cactulator - built-in functions and constants (with their help text).
+#include <functional>
+#include <memory>
 #include <algorithm>
 #include <chrono>
 #include <cmath>

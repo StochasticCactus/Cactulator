@@ -1,4 +1,5 @@
 // Cactulator - HOME screen: algebraic entry with history, or the RPN stack.
+#include <memory>
 #include <algorithm>
 
 #include "app.hpp"

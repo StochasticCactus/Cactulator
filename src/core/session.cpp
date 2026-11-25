@@ -1,5 +1,6 @@
 #include "session.hpp"
 
+#include <functional>
 #include <algorithm>
 #include <cctype>
 #include <cmath>

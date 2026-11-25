@@ -1,5 +1,6 @@
 // Cactulator - STAT app: data lists L1…L4, one-variable statistics,
 // regressions (linear, quadratic, exponential …) and scatter plots.
+#include <memory>
 #include <algorithm>
 #include <cmath>
 

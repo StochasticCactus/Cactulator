@@ -1,4 +1,5 @@
 // Cactulator - UNITS app: convert between units, showing every unit of the category.
+#include <memory>
 #include <algorithm>
 
 #include "app.hpp"

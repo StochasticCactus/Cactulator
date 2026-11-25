@@ -1,4 +1,5 @@
 // Cactulator - a programmable graphing calculator for the terminal.
+#include <cstdlib>
 #include <cstring>
 #include <filesystem>
 #include <iostream>
@@ -6,6 +7,9 @@
 #include <vector>
 
 #ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
 #include <io.h>
 #define CACT_ISATTY _isatty
 #define CACT_STDIN 0
@@ -44,6 +48,10 @@ Examples:
 )USAGE";
 
 int main(int argc, char** argv) {
+#ifdef _WIN32
+  SetConsoleOutputCP(CP_UTF8);
+  SetConsoleCP(CP_UTF8);
+#endif
   ui::Options opt;
   std::vector<std::string> evals;
   bool repl = false, fresh = false, noSplash = false;

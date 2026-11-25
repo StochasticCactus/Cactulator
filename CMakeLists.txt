@@ -58,11 +58,6 @@ target_include_directories(cactulator PRIVATE ${CURSES_INCLUDE_DIRS})
 if(CURSES_CFLAGS)
   target_compile_options(cactulator PRIVATE ${CURSES_CFLAGS})
 endif()
-if(MINGW)
-  # Static ncurses builds on MSYS2 need this define.
-  target_compile_definitions(cactulator PRIVATE NCURSES_STATIC)
-  target_link_options(cactulator PRIVATE -static)
-endif()
 
 if(MSVC)
   target_compile_options(cactcore PRIVATE /W4 /utf-8)

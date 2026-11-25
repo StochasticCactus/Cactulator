@@ -1,5 +1,6 @@
 #include "value.hpp"
 
+#include <algorithm>
 #include <cmath>
 
 namespace cact {

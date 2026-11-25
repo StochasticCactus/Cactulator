@@ -17,6 +17,7 @@
 #endif
 
 #include <clocale>
+#include <cstdlib>
 #include <cstring>
 #include <cwchar>
 
@@ -53,8 +54,26 @@ static std::string toUtf8(wint_t c) {
   return out;
 }
 
-bool Term::init(bool mouse) {
+// Make sure multibyte (UTF-8) output works; returns false if it can't.
+static bool setupUtf8Locale() {
+#ifdef _WIN32
+  if (std::setlocale(LC_ALL, ".UTF-8")) return true;
+#endif
   std::setlocale(LC_ALL, "");
+  if (MB_CUR_MAX > 1) return true;
+  for (const char* loc : {"C.UTF-8", "C.utf8", "en_US.UTF-8", "en_US.utf8"})
+    if (std::setlocale(LC_CTYPE, loc) && MB_CUR_MAX > 1) return true;
+  return false;
+}
+
+bool Term::init(bool mouse) {
+  if (!setupUtf8Locale()) ascii = true;
+  // Make Esc respond quickly (must be set before initscr).
+#ifdef _WIN32
+  _putenv_s("ESCDELAY", "25");
+#else
+  setenv("ESCDELAY", "25", 0);
+#endif
   if (!initscr()) return false;
   active_ = true;
   raw();
@@ -62,9 +81,6 @@ bool Term::init(bool mouse) {
   keypad(stdscr, TRUE);
   nonl();
   curs_set(0);
-#ifdef NCURSES_VERSION
-  set_escdelay(25);
-#endif
   if (has_colors()) {
     start_color();
     colors_ = COLORS;

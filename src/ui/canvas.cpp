@@ -1,5 +1,6 @@
 #include "canvas.hpp"
 
+#include <algorithm>
 #include <cmath>
 
 #include "core/format.hpp"

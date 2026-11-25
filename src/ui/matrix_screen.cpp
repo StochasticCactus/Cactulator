@@ -1,5 +1,7 @@
 // Cactulator - MATRIX app: spreadsheet-like editor for matrices A…F with
 // one-key inverse, determinant, transpose, RREF, eigenvalues and more.
+#include <cstdio>
+#include <memory>
 #include <algorithm>
 
 #include "app.hpp"

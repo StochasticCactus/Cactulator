@@ -1,5 +1,6 @@
 #include "rpn.hpp"
 
+#include <algorithm>
 #include <cctype>
 
 #include "lexer.hpp"

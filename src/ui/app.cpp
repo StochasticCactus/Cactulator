@@ -548,6 +548,15 @@ void App::handle(const Event& e) {
       quit();
       return;
     }
+    if (k == keys::Ctrl('c')) {
+      if (Clock::now() - lastCtrlC_ < std::chrono::seconds(2)) {
+        quit();
+        return;
+      }
+      lastCtrlC_ = Clock::now();
+      toast("Press Ctrl-C again to quit (Ctrl-Q also quits)");
+      return;
+    }
     if (k == keys::Ctrl('t')) {
       cycleTheme();
       return;
@@ -653,8 +662,9 @@ void App::busy(const std::string& what) {
 }
 
 int App::run() {
-  if (!term.init(opt.mouse)) return 1;
   term.ascii = opt.ascii;
+  if (!term.init(opt.mouse)) return 1;
+  s.in.settings.display.unicode = !term.ascii;
   s.in.checkInterrupt = [this]() { return term.interrupted(); };
   s.in.onInput = [this](const std::string& prompt, std::string& answer) {
     answer.clear();

@@ -1,4 +1,5 @@
 // Cactulator - MODE app: all settings in one list.
+#include <memory>
 #include <algorithm>
 
 #include "app.hpp"

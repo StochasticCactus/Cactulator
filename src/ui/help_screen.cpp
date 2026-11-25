@@ -1,4 +1,5 @@
 // Cactulator - HELP app: guides for beginners and a searchable catalog.
+#include <memory>
 #include <algorithm>
 #include <cctype>
 

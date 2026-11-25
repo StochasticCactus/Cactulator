@@ -1,5 +1,6 @@
 // Cactulator - SOLVE app: HP-style equation solver (solve for any variable)
 // and a polynomial root finder.
+#include <memory>
 #include <algorithm>
 #include <cmath>
 

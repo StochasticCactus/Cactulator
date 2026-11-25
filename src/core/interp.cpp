@@ -1,5 +1,8 @@
 #include "interp.hpp"
 
+#include <functional>
+#include <map>
+#include <cstdlib>
 #include <algorithm>
 #include <cmath>
 #include <limits>

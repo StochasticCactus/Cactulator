@@ -1,6 +1,7 @@
 // Cactulator - the full-screen application: device frame, LCD, keypad and screens.
 #pragma once
 
+#include <algorithm>
 #include <chrono>
 #include <functional>
 #include <memory>
@@ -125,6 +126,7 @@ class App {
   std::vector<std::pair<Rect, int>> keyRects_;
   std::vector<std::pair<Rect, int>> softRects_;
   int pressedKey_ = -1;
+  std::chrono::steady_clock::time_point lastCtrlC_{};
   std::chrono::steady_clock::time_point pressTime_;
   std::vector<KeyDef> keys_;
   int keyCols_ = 6;
