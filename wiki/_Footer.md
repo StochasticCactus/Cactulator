@@ -1,0 +1,1 @@
+Cactulator is free software under the GNU GPL v2 or later and comes with ABSOLUTELY NO WARRANTY. · [Source](https://github.com/StochasticCactus/Cactulator) · [Report an issue](https://github.com/StochasticCactus/Cactulator/issues) · These pages are edited in the repository's [`wiki/`](https://github.com/StochasticCactus/Cactulator/tree/main/wiki) folder.
