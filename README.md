@@ -26,6 +26,9 @@ to be as easy as possible to use.
   searchable catalog of every function. Your variables, programs and history are saved
   automatically.
 
+📖 **Full documentation is in the [wiki](https://github.com/StochasticCactus/Cactulator/wiki)** — a guide to every app, the complete
+function reference, RPN, programming, the command line and a developer guide.
+
 | Graphing | Matrices |
 |---|---|
 | ![Graph](docs/screenshots/graph.png) | ![Matrix](docs/screenshots/matrix.png) |
