@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 // Cactulator - plain line-based REPL (used when not on a terminal, or with --repl).
 #include "repl.hpp"
 
@@ -25,7 +44,8 @@ int runRepl(Session& s, bool interactive) {
     return bool(std::getline(std::cin, answer));
   };
   if (interactive)
-    std::cout << "Cactulator REPL — type expressions, 'help' for a hint, 'exit' to quit.\n";
+    std::cout << "Cactulator REPL — type expressions, 'help' for a hint, 'exit' to quit.\n"
+                 "Copyright (C) 2026 StochasticCactus. Comes with ABSOLUTELY NO WARRANTY; type 'license' for details.\n";
   std::string buffer, line;
   for (;;) {
     if (interactive) std::cout << (buffer.empty() ? "> " : "… ") << std::flush;

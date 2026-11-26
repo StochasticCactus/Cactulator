@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 #include "app.hpp"
 
 #include <algorithm>
@@ -465,6 +484,9 @@ void App::drawSplash() {
   term.put((W - int(u8len(sub))) / 2, ty + 1, sub, Style(t.bodyFg, t.bodyBg));
   std::string hint = "press any key";
   term.put((W - int(u8len(hint))) / 2, ty + 3, hint, Style(t.bodyDim, t.bodyBg));
+  std::string legal = "(C) 2026 StochasticCactus · free software (GNU GPL) · ABSOLUTELY NO WARRANTY";
+  if ((int)u8len(legal) > W) legal = "GNU GPL · ABSOLUTELY NO WARRANTY";
+  term.put(std::max(0, (W - int(u8len(legal))) / 2), H - 1, legal, Style(t.bodyDim, t.bodyBg));
   term.end();
   term.next(1600);
 }

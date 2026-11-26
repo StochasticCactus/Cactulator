@@ -204,6 +204,20 @@ experiments/ the original escape-code experiments this project started from
 Numbers are IEEE doubles (about 15–16 significant digits; results are shown with 12, like an HP).
 Calculus and solving are numerical, not symbolic.
 
-## License
+## License and no warranty
 
-GPL-2.0 — see [LICENSE](LICENSE).
+Copyright (C) 2026 StochasticCactus.
+
+Cactulator is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 2 of
+the License or (at your option) any later version. See [LICENSE](LICENSE) for the full text.
+
+**Cactulator is provided "as is", WITHOUT ANY WARRANTY**, without even the implied warranty of
+merchantability or fitness for a particular purpose, to the extent permitted by applicable law.
+The authors are not liable for any damages arising from its use, including results that are
+wrong or inaccurate. Like any calculator software, it can make mistakes (it uses floating-point
+arithmetic and numerical methods), so **double-check anything important** — and don't rely on
+it alone for safety-critical, medical, financial or legal decisions. See sections 11 and 12 of
+the [LICENSE](LICENSE).
+
+Type `license` inside the program (or run `cactulator --version`) to see this notice.

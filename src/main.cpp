@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 // Cactulator - a programmable graphing calculator for the terminal.
 #include <cstdlib>
 #include <cstring>
@@ -45,6 +64,9 @@ Examples:
   cactulator
   cactulator -e "inv([[1,2],[3,4]])" -e "solve(x^2 = 2, x)"
   echo "5 km to mi" | cactulator
+
+Copyright (C) 2026 StochasticCactus. Free software under the GNU GPL v2 or
+later, with ABSOLUTELY NO WARRANTY. Run with --version for details.
 )USAGE";
 
 int main(int argc, char** argv) {
@@ -70,7 +92,7 @@ int main(int argc, char** argv) {
       std::cout << kUsage;
       return 0;
     } else if (a == "-v" || a == "--version") {
-      std::cout << "Cactulator 1.0\n";
+      for (const auto& l : cact::licenseNotice()) std::cout << l << "\n";
       return 0;
     } else if (a == "-e" || a == "--eval") {
       evals.push_back(need("an expression"));

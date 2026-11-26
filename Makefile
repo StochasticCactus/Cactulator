@@ -1,3 +1,6 @@
+# Copyright (C) 2026 StochasticCactus
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 # Quick build without CMake:   make        →  ./cactulator
 #                              make test   →  runs the core tests
 # (CMake works too: cmake -B build && cmake --build build)
