@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 // Cactulator - HOME screen: algebraic entry with history, or the RPN stack.
 #include <memory>
 #include <algorithm>
@@ -308,6 +327,8 @@ class CalcScreen : public Screen {
           {"   plot sin(x), cos(x)", app.lcdAccent()},
           {"", app.lcd()},
           {"F1 opens the guide. Tab completes names.", app.lcdDim()},
+          {"", app.lcd()},
+          {"Free software (GNU GPL) with ABSOLUTELY NO WARRANTY — type license", app.lcdDim()},
       };
       int y = r.y + std::max(0, (r.h - int(welcome.size())) / 2);
       for (const auto& [text, st] : welcome) {
@@ -330,7 +351,9 @@ class CalcScreen : public Screen {
             addWrapped(lines, l, app.lcdStrong(), true, false, click, w, !l.empty() && l.rfind("[", 0) != 0 ? true : false);
             break;
           case HistoryItem::Kind::Error: addWrapped(lines, warn + l, app.lcdError(), false, false, "", w); break;
-          case HistoryItem::Kind::Message: addWrapped(lines, l, app.lcdAccent(), true, false, "", w); break;
+          case HistoryItem::Kind::Message:
+            addWrapped(lines, l, app.lcdAccent(), h.lines.size() == 1, false, "", w);
+            break;
           case HistoryItem::Kind::Print: addWrapped(lines, l, Style(t.lcdAccent, t.lcdBg), false, false, "", w); break;
         }
       }

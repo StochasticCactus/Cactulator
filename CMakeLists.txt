@@ -1,3 +1,6 @@
+# Copyright (C) 2026 StochasticCactus
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 cmake_minimum_required(VERSION 3.14)
 project(Cactulator VERSION 1.0 LANGUAGES CXX)
 

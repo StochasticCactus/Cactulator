@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 // Cactulator - HELP app: guides for beginners and a searchable catalog.
 #include <memory>
 #include <algorithm>
@@ -203,7 +222,11 @@ COMMANDS (type on HOME)
   theme Midnight    pick a theme (Classic, Cactus, Retro LCD, Midnight, Paper)
   keypad            show / hide the keypad
   help name         look up a function
-  quit              leave)HELP";
+  license           copyright and warranty information
+  quit              leave
+
+LICENSE
+Cactulator is free software under the GNU General Public License, version 2 or later. It comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law: results can be wrong, so double-check anything important. Type  license  on HOME for details.)HELP";
 
 struct Entry {
   std::string name, category, signature, help, example, insert;
@@ -233,6 +256,7 @@ std::vector<Entry> buildCatalog() {
       {"param", "Commands", "param x, y", "Graph a parametric curve x(t), y(t).", "param cos(3t), sin(2t)", "param "},
       {"theme", "Commands", "theme name", "Change the color theme.", "theme Paper", "theme "},
       {"to", "Commands", "value unit to unit", "Convert units right on HOME.", "5 km to mi,  100 F to C", " to "},
+      {"license", "Commands", "license", "Copyright and no-warranty information (GNU GPL).", "", "license"},
   };
   for (const auto& c : cmds) v.push_back(c);
   const Entry ops[] = {

@@ -1,3 +1,22 @@
+// Copyright (C) 2026 StochasticCactus
+// SPDX-License-Identifier: GPL-2.0-or-later
+//
+// This file is part of Cactulator.
+//
+// Cactulator is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by the Free
+// Software Foundation; either version 2 of the License, or (at your option)
+// any later version.
+//
+// Cactulator is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+// more details.
+//
+// You should have received a copy of the GNU General Public License along
+// with Cactulator; if not, write to the Free Software Foundation, Inc.,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 #include "session.hpp"
 
 #include <functional>
@@ -22,6 +41,19 @@ std::string trim(const std::string& s) {
   if (a == std::string::npos) return "";
   size_t b = s.find_last_not_of(" \t\r\n");
   return s.substr(a, b - a + 1);
+}
+
+const std::vector<std::string>& licenseNotice() {
+  static const std::vector<std::string> lines = {
+      "Cactulator 1.0 — Copyright (C) 2026 StochasticCactus",
+      "Free software: you can share and change it under the GNU General",
+      "Public License, version 2 or (at your option) any later version.",
+      "It comes with ABSOLUTELY NO WARRANTY, to the extent permitted by law.",
+      "Results can be wrong — double-check anything important.",
+      "Full terms: the LICENSE file, or",
+      "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+  };
+  return lines;
 }
 
 static std::string lower(std::string s) {
@@ -324,8 +356,13 @@ bool Session::command(const std::string& line, SubmitResult& out) {
       out.action = UiAction::Quit;
       return true;
     }
-    if (noArg && (w == "about" || w == "version")) {
-      note("Cactulator 1.0 — a programmable graphing calculator for your terminal");
+    if (noArg && (w == "about" || w == "version" || w == "license" || w == "licence" || w == "warranty" ||
+                  w == "copying")) {
+      HistoryItem h;
+      h.kind = HistoryItem::Kind::Message;
+      h.input = s;
+      h.lines = licenseNotice();
+      addHistory(h);
       return true;
     }
   } catch (const CalcError& e) {
